@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Responsive Device Switcher</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div><div class="eyebrow">RESPONSIVE QA</div><h1>Device Switcher</h1></div>
+      <button id="powerBtn" class="power" type="button" aria-label="Toggle responsive mode"><span class="power-dot"></span></button>
+    </header>
+    <section class="status-card">
+      <div class="status-copy"><span id="statusLabel" class="status-label">Desktop mode</span><strong id="statusViewport">Browser viewport</strong><small id="tabTitle">Current tab</small></div>
+      <button id="rotateBtn" class="icon-btn" type="button" title="Rotate device" disabled>↻</button>
+    </section>
+    <nav id="brandTabs" class="brand-tabs" aria-label="Device brand"></nav>
+    <section class="control-block"><label for="deviceSelect">Device model</label><select id="deviceSelect"></select><div id="deviceMeta" class="device-meta"></div></section>
+    <section class="orientation-row"><button class="segment active" data-orientation="portrait" type="button">Portrait</button><button class="segment" data-orientation="landscape" type="button">Landscape</button></section>
+    <section class="quick-section"><div class="section-title"><span>Quick widths</span><small>CSS viewport px</small></div><div id="quickWidths" class="quick-grid"></div></section>
+    <details class="custom-panel">
+      <summary>Custom viewport</summary>
+      <div class="custom-grid">
+        <label><span>Width</span><input id="customWidth" type="number" min="240" max="2560" value="393"></label>
+        <label><span>Height</span><input id="customHeight" type="number" min="320" max="2560" value="852"></label>
+        <label><span>DPR</span><input id="customDpr" type="number" min="1" max="5" step="0.25" value="3"></label>
+      </div>
+      <button id="applyCustomBtn" class="secondary-btn" type="button">Apply custom viewport</button>
+    </details>
+    <div class="actions"><button id="applyBtn" class="primary-btn" type="button">Apply device</button><button id="resetBtn" class="ghost-btn" type="button">Reset desktop</button></div>
+    <div id="errorBox" class="error-box" role="alert" hidden></div>
+    <footer><span>Alt + Shift + M</span><span>Toggle responsive mode</span></footer>
+  </main>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
